@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangam Salary Sheet</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <style>
+        #salaryTable th,
+        #salaryTable td {
+            border-right: 1px solid #ddd; /* Add a vertical line */
+            text-align: center; /* Center the content */
+        }
+
+        #salaryTable th:last-child,
+        #salaryTable td:last-child {
+            border-right: none; /* Remove the right border for the last column */
+        }
+    </style>
+</head>
+<body>
+
+<h3>Sangam Bhattarai (Sr. Backend Developer)</h3>
+<p>Safety Deposit = <span id="totalSafetyDeposit"></span></p>
+<p>Total Pending = <span id="totalpending"></span></p>
+
+<table id="salaryTable" class="display">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Month</th>
+            <th>Gross Salary</th>
+            <th>TDS</th>
+            <th>Net Salary</th>
+            <th>Safety Deposit</th>
+            <th>Leave Days</th>
+            <th>Leave Cut</th>
+            <th>Lunch</th>
+            <th>Net Payable</th>
+            <th>Paid Amount</th>
+            <th>Dashain Bonus</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr class="salaryRow" id="row1">
+            <td class="sn">1</td>
+            <td class="month">Ashad (2078)</td>
+            <td class="grossSalary">16000</td>
+            <td class="tds">160</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">15048</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 15048 on July-16</td>
+        </tr>
+        <tr class="salaryRow" id="row2">
+            <td class="sn">2</td>
+            <td class="month">Shrawan (2078)</td>
+            <td class="grossSalary">17000</td>
+            <td class="tds">170</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">15988.5</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 15988.5 on Sep-12</td>
+        </tr>
+        <tr class="salaryRow" id="row3">
+            <td class="sn">3</td>
+            <td class="month">Bhadra (2078)</td>
+            <td class="grossSalary">17000</td>
+            <td class="tds">170</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">10</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">10000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 10000 on Nov-3</td>
+        </tr>
+        <tr class="salaryRow" id="row4">
+            <td class="sn">4</td>
+            <td class="month">Ashoj (2078)</td>
+            <td class="grossSalary">17000</td>
+            <td class="tds">170</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">15988.5</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 15988.5 on Oct-8</td>
+        </tr>
+        <tr class="salaryRow" id="row5">
+            <td class="sn">5</td>
+            <td class="month">Kartik (2078)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">25338</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 25338 on Feb-8</td>
+        </tr>
+        <tr class="salaryRow" id="row6">
+            <td class="sn">6</td>
+            <td class="month">Mangsir (2078)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">24960</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 24960 on Feb-10</td>
+        </tr>
+        <tr class="salaryRow" id="row7">
+            <td class="sn">7</td>
+            <td class="month">Poush (2078)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">24960</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 24960 on Feb-20</td>
+        </tr>
+        <tr class="salaryRow" id="row8">
+            <td class="sn">8</td>
+            <td class="month">Magh (2078)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">24960</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid (4000 on April-13),(20960 on April-28)</td>
+        </tr>
+        <tr class="salaryRow" id="row9">
+            <td class="sn">9</td>
+            <td class="month">Falgun (2078)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">3</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">455</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">21931</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid (10000 on May-27),(11931 on July-18)</td>
+        </tr>
+        <tr class="salaryRow" id="row10">
+            <td class="sn">10</td>
+            <td class="month">Chaitra (2078)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">1230</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">23730</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 23730 on June-29</td>
+        </tr>
+        <tr class="salaryRow" id="row11">
+            <td class="sn">11</td>
+            <td class="month">Baisakh (2079)</td>
+            <td class="grossSalary">26000</td>
+            <td class="tds">260</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">2</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">880</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        <tr class="salaryRow" id="row12">
+            <td class="sn">12</td>
+            <td class="month">Jestha (2079)</td>
+            <td class="grossSalary">28500</td>
+            <td class="tds">285</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">16</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">560</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        <tr class="salaryRow" id="row13">
+            <td class="sn">13</td>
+            <td class="month">Ashad (2079)</td>
+            <td class="grossSalary">28500</td>
+            <td class="tds">285</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">4</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        <tr class="salaryRow" id="row14">
+            <td class="sn">14</td>
+            <td class="month">Shrawan (2079)</td>
+            <td class="grossSalary">28500</td>
+            <td class="tds">285</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">5</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        <tr class="salaryRow" id="row15">
+            <td class="sn">15</td>
+            <td class="month">Bhadra (2079)</td>
+            <td class="grossSalary">28500</td>
+            <td class="tds">285</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">5</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">57000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 57000 on Sep-30</td>
+        </tr>
+        <tr class="salaryRow" id="row16">
+            <td class="sn">16</td>
+            <td class="month">Ashoj (2079)</td>
+            <td class="grossSalary">28500</td>
+            <td class="tds">285</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        <tr class="salaryRow" id="row17">
+            <td class="sn">17</td>
+            <td class="month">Kartik (2079)</td>
+            <td class="grossSalary">28500</td>
+            <td class="tds">285</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">21000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 21000 on Nov-23</td>
+        </tr>
+        <tr class="salaryRow" id="row18">
+            <td class="sn">18</td>
+            <td class="month">Mangsir (2079)</td>
+            <td class="grossSalary">37000</td>
+            <td class="tds">370</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">25000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 25000 on Dec-8</td>
+        </tr>
+        <tr class="salaryRow" id="row19">
+            <td class="sn">19</td>
+            <td class="month">Poush (2079)</td>
+            <td class="grossSalary">37000</td>
+            <td class="tds">370</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">5</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">50000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 50000 on Feb-16</td>
+        </tr>
+        <tr class="salaryRow" id="row20">
+            <td class="sn">20</td>
+            <td class="month">Magh (2079)</td>
+            <td class="grossSalary">37000</td>
+            <td class="tds">370</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">40000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 40000 on April-12</td>
+        </tr>
+        <tr class="salaryRow" id="row21">
+            <td class="sn">21</td>
+            <td class="month">Falgun (2079)</td>
+            <td class="grossSalary">37000</td>
+            <td class="tds">370</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">25000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 25000 on Sep-14</td>
+        </tr>
+        <tr class="salaryRow" id="row22">
+            <td class="sn">22</td>
+            <td class="month">Chaitra (2079)</td>
+            <td class="grossSalary">37000</td>
+            <td class="tds">370</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">5000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 5000 on May-20</td>
+        </tr>
+        <tr class="salaryRow" id="row23">
+            <td class="sn">23</td>
+            <td class="month">Baisakh (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">8</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">35000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 35000 cash on May-26</td>
+        </tr>
+        <tr class="salaryRow" id="row24">
+            <td class="sn">24</td>
+            <td class="month">Jestha (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        <tr class="salaryRow" id="row25">
+            <td class="sn">25</td>
+            <td class="month">Ashad (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">8</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">85505</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 79625 and 5880 on July-14</td>
+        </tr>
+        <tr class="salaryRow" id="row26">
+            <td class="sn">26</td>
+            <td class="month">Shrawan (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">9</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">34027.5</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 34027.5 on Aug-30</td>
+        </tr>
+        <tr class="salaryRow" id="row27">
+            <td class="sn">27</td>
+            <td class="month">Bhadra (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">2</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">46242</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 46242 on Oct-13</td>
+        </tr>
+        <tr class="salaryRow" id="row28">
+            <td class="sn">28</td>
+            <td class="month">Ashoj (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">3</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">44497</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid (25000 on Oct-20), (19497 on Nov-11)</td>
+        </tr>
+        <tr class="salaryRow" id="row29">
+            <td class="sn">29</td>
+            <td class="month">Kartik (2080)</td>
+            <td class="grossSalary">54000</td>
+            <td class="tds">1650</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">0</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">7000</td>
+            <td class="bonus">0</td>
+            <td class="remarks">Paid 7000 on Nov-11</td>
+        </tr>
+        <tr class="salaryRow" id="row30">
+            <td class="sn">30</td>
+            <td class="month">Mangsir (2080)</td>
+            <td class="grossSalary">60000</td>
+            <td class="tds">2250</td>
+            <td class="netSalary"></td>
+            <td class="safetyDeposit"></td>
+            <td class="leaveDays">3</td>
+            <td class="leaveCut"></td>
+            <td class="khaja">0</td>
+            <td class="netPayable"></td>
+            <td class="paidAmount">0</td>
+            <td class="bonus">0</td>
+            <td class="remarks"></td>
+        </tr>
+        
+
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        // Calculate values for each row
+        $('.salaryRow').each(function () {
+            var grossSalary = parseInt($(this).find('.grossSalary').text());
+            var tds = parseInt($(this).find('.tds').text());
+            var leaveDays = parseInt($(this).find('.leaveDays').text());
+
+            var netSalary = grossSalary - tds;
+            var safetyDeposit = netSalary * (5/100);
+
+            var leaveCut = (netSalary / 30) * leaveDays;
+            var khaja = parseInt($(this).find('.khaja').text());
+            var netPayable = grossSalary - tds - safetyDeposit - leaveCut - khaja;
+
+            // Update cells within the current row with calculated values
+            $(this).find('.netSalary').text(netSalary);
+            $(this).find('.safetyDeposit').text(safetyDeposit);
+            $(this).find('.leaveCut').text(leaveCut.toFixed(2)); // Adjust decimal places as needed
+            $(this).find('.netPayable').text(netPayable);
+        });
+
+        // Calculate and update total values
+        var totalGrossSalary = 0;
+        var totalTDS = 0;
+        var totalNetSalary = 0;
+        var totalSafetyDeposit = 0;
+        var totalLeaveDays = 0;
+        var totalLeaveCut = 0;
+        var totalKhaja = 0;
+        var totalNetPayable = 0;
+        var totalpaidAmount = 0;
+        var totalbonus = 0;
+        var totalpending = 0;
+
+
+        $('.salaryRow').each(function () {
+            totalGrossSalary += parseInt($(this).find('.grossSalary').text()) || 0;
+            totalTDS += parseFloat($(this).find('.tds').text()) || 0;
+            totalNetSalary += parseFloat($(this).find('.netSalary').text()) || 0;
+            totalSafetyDeposit += parseFloat($(this).find('.safetyDeposit').text()) || 0;
+            totalLeaveDays += parseInt($(this).find('.leaveDays').text()) || 0;
+            totalLeaveCut += parseFloat($(this).find('.leaveCut').text()) || 0;
+            totalKhaja += parseFloat($(this).find('.khaja').text()) || 0;
+            totalNetPayable += parseFloat($(this).find('.netPayable').text()) || 0;
+            totalpaidAmount += parseFloat($(this).find('.paidAmount').text()) || 0;
+            totalbonus += parseFloat($(this).find('.bonus').text()) || 0;
+        });
+
+        // Update total row with calculated values
+        $('#salaryTable tbody').append(
+            '<tr class="salaryRow" id="row31">' +
+                '<td class="sn">31</td>' +
+                '<td class="month">Total</td>' +
+                '<td class="grossSalary">' + totalGrossSalary + '</td>' +
+                '<td class="tds">' + totalTDS + '</td>' +
+                '<td class="netSalary">' + totalNetSalary + '</td>' +
+                '<td class="safetyDeposit">' + totalSafetyDeposit + '</td>' +
+                '<td class="leaveDays">' + totalLeaveDays + '</td>' +
+                '<td class="leaveCut">' + totalLeaveCut.toFixed(2) + '</td>' +
+                '<td class="khaja">' + totalKhaja + '</td>' +
+                '<td class="netPayable">' + totalNetPayable + '</td>' +
+                '<td class="paidAmount">'+ totalpaidAmount + '</td>' +
+                '<td class="bonus">'+ totalbonus + '</td>' +
+                '<td class="remarks"></td>' +
+            '</tr>'
+        );
+
+        // Display total safety deposit
+        $('#totalSafetyDeposit').text(totalSafetyDeposit.toFixed(2));
+        $('#totalpending').text(totalNetPayable + totalbonus - totalpaidAmount);
+
+        // Initialize DataTables with paging set to false
+        $('#salaryTable').DataTable({
+            paging: false
+        });
+    });
+</script>
+
+</body>
+</html>
