@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
     <style>
         #salaryTable th,
         #salaryTable td {
@@ -23,10 +24,10 @@
 <body>
 
 <h3>Sangam Bhattarai (Sr. Backend Developer)</h3>
-<p>Safety Deposit = <span id="totalSafetyDeposit"></span></p>
-<p>Total Pending = <span id="totalpending"></span></p>
+<p>Total Pending = <span id="totalpending"></span> (including safety deposit and dashain bonus)</p>
 
 <table id="salaryTable" class="display">
+    <button onclick="exportToExcel()">Export to Excel</button>
     <thead>
         <tr>
             <th>SN</th>
@@ -283,8 +284,8 @@
             <td class="khaja">0</td>
             <td class="netPayable"></td>
             <td class="paidAmount">0</td>
-            <td class="bonus">0</td>
-            <td class="remarks"></td>
+            <td class="bonus">14107.5</td>
+            <td class="remarks">Dashain bonus Rs. 14107.5 calculated (50% of net salary)</td>
         </tr>
         <tr class="salaryRow" id="row17">
             <td class="sn">17</td>
@@ -478,8 +479,8 @@
             <td class="khaja">0</td>
             <td class="netPayable"></td>
             <td class="paidAmount">7000</td>
-            <td class="bonus">0</td>
-            <td class="remarks">Paid 7000 on Nov-11</td>
+            <td class="bonus">36645</td>
+            <td class="remarks">Paid 7000 on Nov-11. Dashain bonus Rs. 36645 calculated (70% of net salary) </td>
         </tr>
         <tr class="salaryRow" id="row30">
             <td class="sn">30</td>
@@ -569,15 +570,30 @@
             '</tr>'
         );
 
-        // Display total safety deposit
-        $('#totalSafetyDeposit').text(totalSafetyDeposit.toFixed(2));
-        $('#totalpending').text(totalNetPayable + totalbonus - totalpaidAmount);
+        $('#totalpending').text(totalNetPayable + totalSafetyDeposit + totalbonus - totalpaidAmount);
 
         // Initialize DataTables with paging set to false
         $('#salaryTable').DataTable({
             paging: false
         });
     });
+</script>
+
+<script>
+    function exportToExcel() {
+        // Get table element
+        var table = document.getElementById('salaryTable');
+
+        // Create a worksheet
+        var ws = XLSX.utils.table_to_sheet(table);
+
+        // Create a workbook
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+        // Save the file
+        XLSX.writeFile(wb, 'sangam_sheet.xlsx');
+    }
 </script>
 
 </body>
